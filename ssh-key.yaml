@@ -1,0 +1,9 @@
+- hosts: all
+  tasks:
+    - name: copy file using authorized_key
+      authorized_key: 
+        user: vagrant
+        state: present
+        key: '{{item}}'
+      with_file:
+        - ~/.ssh/id_rsa.pub
